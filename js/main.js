@@ -34,6 +34,7 @@ function loadServers() {
 }
 
 function loadChannels() {
+  window.scrollTo(0, 0);
   choosedServer = chooseServer.value;
   choosedInterval = interval.value;
   choosedChannels = channels.value;
