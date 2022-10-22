@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyIPTV</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://kit.fontawesome.com/b49cbeb4aa.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__title">MyIPTV</h1>
+        <div id="header-channels" class="header__channels">
+          <label for="servers" name="servers-label" class="label">
+            Servidor:
+            <select name="servers" id="servers" class="select">
+              <!-- los cargamos dinámicamente -->
+            </select>
+          </label>
+          <label for="interval" name="interval-label" class="label">
+            Centena de Canales:
+            <select name="interval" id="interval" class="select">
+              <option value="0" name="interval" class="select__option">
+                Hasta 100
+              </option>
+              <option value="100" name="interval" class="select__option">
+                100 - 199
+              </option>
+            </select>
+          </label>
+          <label for="channel" name="channel-label" class="label">
+            Canales:
+            <select name="channel" id="channel" class="select">
+              <option value="0" name="channel" class="select__option">
+                hasta el 9
+              </option>
+              <option value="10" name="channel" class="select__option">
+                10 - 19
+              </option>
+              <option value="20" name="channel" class="select__option">
+                20 - 29
+              </option>
+              <option value="30" name="channel" class="select__option">
+                30 - 39
+              </option>
+              <option value="40" name="channel" class="select__option">
+                40 - 49
+              </option>
+              <option value="50" name="channel" class="select__option">
+                50 - 59
+              </option>
+              <option value="60" name="channel" class="select__option">
+                60 - 69
+              </option>
+              <option value="70" name="channel" class="select__option">
+                70 - 79
+              </option>
+              <option value="80" name="channel" class="select__option">
+                80 - 89
+              </option>
+              <option value="90" name="channel" class="select__option">
+                90 - 99
+              </option>
+            </select>
+          </label>
+          <input id="search" type="button" class="button" value="Sintonizar" />
+        </div>
+      </div>
+    </header>
+    <main id="main" class="main">
+      <!-- cargamos el contenido dinámicamente -->
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
