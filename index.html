@@ -23,14 +23,18 @@
       <div class="header__container">
         <h1 class="header__title">MyIPTV</h1>
         <div id="header-channels" class="header__channels">
-          <label for="servers" name="servers-label" class="label">
-            Servidor:
+          <div class="header__servers-container flex">
+            <label for="servers" name="servers-label" class="label">
+              Servidor:
+            </label>
             <select name="servers" id="servers" class="select">
               <!-- los cargamos dinámicamente -->
             </select>
-          </label>
-          <label for="interval" name="interval-label" class="label">
-            Centena de Canales:
+          </div>
+          <div class="header__interval-container flex">
+            <label for="interval" name="interval-label" class="label">
+              Centena de Canales:
+            </label>
             <select name="interval" id="interval" class="select">
               <option value="0" name="interval" class="select__option">
                 Hasta 100
@@ -39,9 +43,11 @@
                 100 - 199
               </option>
             </select>
-          </label>
-          <label for="channel" name="channel-label" class="label">
-            Canales:
+          </div>
+          <div class="header__channel-container flex">
+            <label for="channel" name="channel-label" class="label">
+              Canales:
+            </label>
             <select name="channel" id="channel" class="select">
               <option value="0" name="channel" class="select__option">
                 hasta el 9
@@ -74,7 +80,7 @@
                 90 - 99
               </option>
             </select>
-          </label>
+          </div>
           <input id="search" type="button" class="button" value="Sintonizar" />
         </div>
       </div>
