@@ -1,7 +1,8 @@
 // Variables
 
 const servers = {
-  casadelfutbol: ["https://casadelfutbol.info/player/2/channel", "selected"],
+  casadelfutbol1: ["https://casadelfutbol.info/player/1/channel", "selected"],
+  casadelfutbol2: ["https://casadelfutbol.info/player/2/channel"],
 };
 const chooseServer = document.getElementById("servers");
 const interval = document.getElementById("interval");
