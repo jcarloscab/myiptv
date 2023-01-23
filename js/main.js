@@ -2,6 +2,7 @@
 
 const servers = {
   casadelfutbol1: ["https://casadelfutbol.info/player/1/channel", "selected"],
+  casadelfutbolTv: ["https://casadelfutbol.tv/player/canalchannel.php"],
   casadelfutbol2: ["https://casadelfutbol.info/player/2/channel"],
 };
 const chooseServer = document.getElementById("servers");
