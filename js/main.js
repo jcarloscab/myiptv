@@ -1,7 +1,7 @@
 // Variables
 
 const servers = {
-  HoyFutbol: ["https://hoyfutbol.info/player/2/channel", "selected"],
+  TvFutbol: ["https://tvfutbol.info/player/2/channel", "selected"],
 };
 const chooseServer = document.getElementById("servers");
 const interval = document.getElementById("interval");
