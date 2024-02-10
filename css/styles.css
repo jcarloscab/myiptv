@@ -27,12 +27,45 @@ html {
 
 .header {
   width: 100%;
-  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   top: 0;
 }
 
-.header__container {
+.settings-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 2px 2px 3px rgba(255,255,255,0.2);
+  padding: 10px 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  transition: all 0.2s ease-in;
+}
+
+.settings-button:hover {
+  background-color: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+.settings-button__icon {
+  font-size: 2rem;
+  color: var(--secundary);
+  transition: all 0.2s ease-in;
+}
+
+.settings-button:hover .settings-button__icon {
+  color: var(--primary);
+}
+
+.settings-container {
+  background-color: var(--primary);
+  /* position: fixed; */
+  /* top: 0; */
+  width: 100%;
+}
+
+.settings {
   width: 90%;
   max-width: 1000px;
   height: 100%;
@@ -43,7 +76,7 @@ html {
   justify-content: space-evenly;
 }
 
-.header__title {
+.settings__title {
   padding-top: 1rem;
   font-size: 3rem;
   font-weight: 100;
@@ -51,7 +84,7 @@ html {
   color: var(--secundary);
 }
 
-.header__channels {
+.settings__channels {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -102,7 +135,7 @@ html {
 /*---------------------------------------------------------------*/
 
 .main {
-  margin: 160px auto 100px auto;
+  /* margin: 160px auto 100px auto; */
   width: 95%;
   display: flex;
   justify-content: center;
@@ -148,12 +181,6 @@ html {
 /*---------------------------------------------------------------*/
 /*                 R E S P O N S I V E                           */
 /*---------------------------------------------------------------*/
-
-@media screen and (max-width: 768px) {
-  .main {
-    margin-top: 220px;
-  }
-}
 
 @media screen and (max-width: 425px) {
   .header__channels {
