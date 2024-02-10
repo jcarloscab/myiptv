@@ -6,6 +6,7 @@
   /* --primary: rgb(128, 218, 245); */
   --primary: #222;
   --secundary: #eee;
+  --cristal: #222d;
 }
 
 html {
@@ -59,10 +60,10 @@ html {
 }
 
 .settings-container {
-  background-color: #222d;
+  background-color: var(--cristal);
   position: absolute;
   width: 100%;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 50px));
   transition: all 0.3s ease-in-out;
 }
 
@@ -135,6 +136,33 @@ html {
   transform: scale(95%);
 }
 
+.settings-container__button {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 40px;
+  background-color: var(--cristal);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all 0.2s ease-in;
+}
+
+.settings-container__button:hover {
+  background-color: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+.settings-container__button:hover .button-up__icon {
+  color: var(--primary);
+}
+
+.button-up__icon {
+  font-size: 2rem;
+  color: var(--secundary);
+  transition: all 0.2s ease-in;
+}
+
 /*---------------------------------------------------------------*/
 /*                 M A I N                                       */
 /*---------------------------------------------------------------*/
@@ -198,10 +226,6 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .main {
-    margin-top: 340px;
   }
 
   .button {

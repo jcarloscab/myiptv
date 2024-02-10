@@ -4,6 +4,7 @@ const servers = {
   TvFutbol: ["https://tvfutbol.info/player/2/channel", "selected"],
 };
 const btnSettings = document.getElementById("settings-button");
+const btnSettingsUp = document.getElementById("settings-container-button");
 const settings = document.getElementById("settings-container");
 const chooseServer = document.getElementById("servers");
 const interval = document.getElementById("interval");
@@ -26,6 +27,11 @@ let currentInitialChannel = null;
 function openSettings () {
   btnSettings.style.opacity = 0;
   settings.classList.add("settings-container-open");
+}
+
+function closeSettings () {
+  settings.classList.remove("settings-container-open");
+  btnSettings.style.opacity = 1;
 }
 
 function loadServers() {
@@ -89,4 +95,5 @@ loadChannels();
 // listeners
 
 btnSettings.addEventListener("click", openSettings);
+btnSettingsUp.addEventListener("click", closeSettings);
 btnSearch.addEventListener("click", loadChannels);
