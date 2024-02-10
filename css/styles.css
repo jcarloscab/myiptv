@@ -59,10 +59,15 @@ html {
 }
 
 .settings-container {
-  background-color: var(--primary);
-  /* position: fixed; */
-  /* top: 0; */
+  background-color: #222d;
+  position: absolute;
   width: 100%;
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.settings-container-open {
+  transform: translateY(0);
 }
 
 .settings {
