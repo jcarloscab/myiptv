@@ -35,65 +35,50 @@
                 <!-- los cargamos dinámicamente -->
               </select>
             </div>
-            <div class="settings__interval-container flex">
-              <label for="interval" name="interval-label" class="label">
-                Centena de Canales:
+            <div class="channel">
+              <label
+                for="initial-channel"
+                class="channel__initial-channel-label label"
+                >ir al Canal:
               </label>
-              <select name="interval" id="interval" class="select">
-                <option value="0" name="interval" class="select__option">
-                  Hasta 100
-                </option>
-                <option value="100" name="interval" class="select__option">
-                  100 - 199
-                </option>
-              </select>
+              <input
+                type="number"
+                id="initial-channel"
+                name="initial-channel"
+                class="channel__initial-channel"
+                min="1"
+              />
+              <input
+                type="range"
+                id="channel-range"
+                name="channel-range"
+                class="channel__range"
+                min="1"
+              />
+              <div class="channel__text">
+                <span
+                  id="text-initial-channel"
+                  class="channel__text-initial label"
+                  >1</span
+                >
+                <span
+                  id="text-final-channel"
+                  class="channel__text-final label"
+                ></span>
+              </div>
+              <input
+                id="search"
+                type="button"
+                class="button"
+                value="Sintonizar"
+              />
             </div>
-            <div class="settings__channel-container flex">
-              <label for="channel" name="channel-label" class="label">
-                Canales:
-              </label>
-              <select name="channel" id="channel" class="select">
-                <option value="0" name="channel" class="select__option">
-                  hasta el 9
-                </option>
-                <option value="10" name="channel" class="select__option">
-                  10 - 19
-                </option>
-                <option value="20" name="channel" class="select__option">
-                  20 - 29
-                </option>
-                <option value="30" name="channel" class="select__option">
-                  30 - 39
-                </option>
-                <option value="40" name="channel" class="select__option">
-                  40 - 49
-                </option>
-                <option value="50" name="channel" class="select__option">
-                  50 - 59
-                </option>
-                <option value="60" name="channel" class="select__option">
-                  60 - 69
-                </option>
-                <option value="70" name="channel" class="select__option">
-                  70 - 79
-                </option>
-                <option value="80" name="channel" class="select__option">
-                  80 - 89
-                </option>
-                <option value="90" name="channel" class="select__option">
-                  90 - 99
-                </option>
-              </select>
-            </div>
-            <input
-              id="search"
-              type="button"
-              class="button"
-              value="Sintonizar"
-            />
           </div>
         </div>
-        <div id="settings-container-button" class="settings-container__button button-up">
+        <div
+          id="settings-container-button"
+          class="settings-container__button button-up"
+        >
           <i class="fa-solid fa-chevron-up button-up__icon"></i>
         </div>
       </div>

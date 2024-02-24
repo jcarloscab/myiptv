@@ -73,7 +73,7 @@ html {
 
 .settings {
   width: 90%;
-  max-width: 1000px;
+  max-width: 600px;
   height: 100%;
   margin: auto;
   display: flex;
@@ -157,6 +157,45 @@ html {
   color: var(--primary);
 }
 
+/* channel */
+
+.channel {
+  border-right: 2px solid #777;
+  border-bottom: 2px solid #777;
+  border-top: 2px solid #222;
+  border-left: 2px solid #222;
+  width: 300px; 
+  padding: 8px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.channel__initial-channel-label {
+  margin-bottom: 15px;
+}
+
+.channel__initial-channel {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  width: 60px;
+  outline: none;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.channel__range {
+  width: 100%;
+}
+
+.channel__text {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .button-up__icon {
   font-size: 2rem;
   color: var(--secundary);
@@ -221,11 +260,17 @@ html {
     align-items: center;
   }
 
+  .settings__channels {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .flex {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
   }
 
   .button {
