@@ -1,4 +1,4 @@
-// Variables
+/************ Variables *******************/
 
 const servers = {
   TvFutbol: [
@@ -61,9 +61,12 @@ const main = document.getElementById("main");
 const initialChannel = document.getElementById("initial-channel");
 const rangeChannel = document.getElementById("channel-range");
 const textFinalChannel = document.getElementById("text-final-channel");
+const btnPrev = document.getElementById("prev");
+const btnNext = document.getElementById("next");
 let selectedServer;
 
-// FUNCIONES
+/********************** FUNCIONES *****************************/
+
 function openSettings() {
   btnSettings.style.opacity = 0;
   settings.classList.add("settings-container-open");
@@ -154,19 +157,39 @@ function loadChannels(server, channel) {}
 
 getServers(loadNewServer);
 
-// listeners
+/****************listeners ******************************/
+
 btnSettings.addEventListener("click", openSettings);
+
 btnSettingsUp.addEventListener("click", closeSettings);
+
 btnSearch.addEventListener("click", () => {
   loadChannels(servers[selectedServer][0], initialChannel.value);
 });
+
 rangeChannel.addEventListener("mousemove", () =>
   setNewInitChannel(rangeChannel.value)
 );
+
 initialChannel.addEventListener("change", () =>
   setNewInitChannel(initialChannel.value)
 );
+
 serverSelect.addEventListener("change", () => {
   selectedServer = serverSelect.value;
   loadNewServer(servers[selectedServer][0], setNewInitChannel, loadChannels);
+});
+
+// aparicion de botones generales
+main.addEventListener("mousemove", () => {
+  if (!prev.classList.contains("prev--show")) {
+    btnPrev.classList.add("prev--show");
+    btnNext.classList.add("next--show");
+    btnSettings.classList.add("settings-button--show");
+    setTimeout(() => {
+      btnPrev.classList.remove("prev--show");
+      btnNext.classList.remove("next--show");
+      btnSettings.classList.remove("settings-button--show");
+    }, 3000);
+  }
 });
