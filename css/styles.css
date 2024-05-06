@@ -223,6 +223,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 99;
 }
 
 .prev {
@@ -267,20 +268,35 @@ body {
   border-left: 1px solid #444;
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
+  position: relative;
 }
 
 .channelcard__title {
   line-height: 2.5rem;
   text-align: center;
   color: white;
+  font-size: 3rem;
   font-weight: 600;
 }
 
-.channelcard__footer {
-  height: 3rem;
+.channelcard__pannel {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.channelcard:hover .channelcard__pannel {
+  visibility: visible;
+  opacity: 1;
 }
 
 .channelcard__link {
@@ -289,6 +305,9 @@ body {
   font-size: 1.5rem;
   transition: all 0.3s;
   margin-right: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
 }
 
 .channelcard__link:hover {
@@ -302,6 +321,7 @@ body {
 @media screen and (max-width: 425px) {
 
   /* general */
+  
   .flex {
     width: 100%;
     display: flex;

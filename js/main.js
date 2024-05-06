@@ -4,7 +4,7 @@ const servers = {
   TvFutbol: [
     {
       type: "channel",
-      channelUrl: ["https://tvfutbol.info/player/2/channel"],
+      channelUrl: ["https://tvfutbol.info/player/3/channel"],
       defaultChannel: 60,
       finalChannel: 150,
     },
@@ -14,10 +14,22 @@ const servers = {
     {
       type: "url",
       channelUrl: [
-        "https://pirlotvenvivo.me/tv/dazn1.php",
-        "https://pirlotvenvivo.me/tv/dazn2.php",
-        "https://pirlotvenvivo.me/tv/daznlaliga.php",
-        "https://pirlotvenvivo.me/daznf1.php",
+        {
+          url: "https://pirlotvenvivo.me/tv/dazn1.php",
+          channel: "DAZN 1",
+        },
+        {
+          url: "https://pirlotvenvivo.me/tv/dazn2.php",
+          channel: "DAZN 2",
+        },
+        {
+          url: "https://pirlotvenvivo.me/tv/daznlaliga.php",
+          channel: "DAZN Liga",
+        },
+        {
+          url: "https://pirlotvenvivo.me/daznf1.php",
+          channel: "DAZN F1",
+        },
       ],
       defaultChannel: 1,
     },
@@ -26,10 +38,22 @@ const servers = {
     {
       type: "url",
       channelUrl: [
-        "https://pirlotvenvivo.me/iframe/espnhdor.php",
-        "https://pirlotvenvivo.me/iframe/espn2hdor.php",
-        "https://pirlotvenvivo.me/iframe/espn3hdor.php",
-        "https://pirlotvenvivo.me/iframe/espnextraor.php",
+        {
+          url: "https://pirlotvenvivo.me/iframe/espnhdor.php",
+          channel: "ESPN",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/espn2hdor.php",
+          channel: "ESPN 2",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/espn3hdor.php",
+          channel: "ESPN 3",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/espnextraor.php",
+          channel: "ESPN EXTRA",
+        },
       ],
       defaultChannel: 1,
     },
@@ -38,14 +62,38 @@ const servers = {
     {
       type: "url",
       channelUrl: [
-        "https://pirlotvenvivo.me/iframe/hbomax.php",
-        "https://pirlotvenvivo.me/iframe/hbomax2.php",
-        "https://pirlotvenvivo.me/iframe/hbomax3.php",
-        "https://pirlotvenvivo.me/iframe/hbomax4.php",
-        "https://pirlotvenvivo.me/iframe/hbomax5.php",
-        "https://pirlotvenvivo.me/iframe/hbomax6.php",
-        "https://pirlotvenvivo.me/iframe/hbomax7.php",
-        "https://pirlotvenvivo.me/iframe/hbomax8.php",
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax.php",
+          channel: "HBOMax",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax2.php",
+          channel: "HBOMax 2",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax3.php",
+          channel: "HBOMax 3",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax4.php",
+          channel: "HBOMax 4",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax5.php",
+          channel: "HBOMax 5",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax6.php",
+          channel: "HBOMax 6",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax7.php",
+          channel: "HBOMax 7",
+        },
+        {
+          url: "https://pirlotvenvivo.me/iframe/hbomax8.php",
+          channel: "HBOMax 8",
+        },
       ],
       defaultChannel: 1,
     },
@@ -61,8 +109,6 @@ const main = document.getElementById("main");
 const initialChannel = document.getElementById("initial-channel");
 const rangeChannel = document.getElementById("channel-range");
 const textFinalChannel = document.getElementById("text-final-channel");
-const btnPrev = document.getElementById("prev");
-const btnNext = document.getElementById("next");
 let selectedServer;
 
 /********************** FUNCIONES *****************************/
@@ -102,7 +148,12 @@ function loadNewServer(server, fnNewChannel, fnChannels) {
     rangeChannel.setAttribute("max", server.channelUrl.length);
   }
   fnNewChannel(server.defaultChannel);
-  fnChannels(server, initialChannel.value);
+  fnChannels(
+    server,
+    Number(initialChannel.value),
+    setNewInitChannel,
+    showChannel
+  );
 }
 
 function setNewInitChannel(newChannel) {
@@ -110,50 +161,73 @@ function setNewInitChannel(newChannel) {
   rangeChannel.value = newChannel;
 }
 
-function loadChannels(server, channel) {}
-// function loadChannels(server, channel) {
-//   window.scrollTo(0, 0);
-//   selectedServer = serverSelect.value;
-//   choosedInterval = interval.value;
-//   choosedChannels = channels.value;
-//   initialChannel = Number(choosedInterval) + Number(choosedChannels);
-//   if (
-//     currentServer !== selectedServer ||
-//     currentInterval !== choosedInterval ||
-//     currentInitialChannel !== initialChannel
-//   ) {
-//     currentServer = selectedServer;
-//     currentInterval = choosedInterval;
-//     currentInitialChannel = initialChannel;
-//     main.innerHTML = "";
-//     for (let i = initialChannel; i < initialChannel + 10; i++) {
-//       if (i === 0) {
-//         i++;
-//       }
-//       let url = servers[selectedServer][0].replace("channel", i);
-//       main.innerHTML += `
-//       <article class="channelcard">
-//           <h3 class="channelcard__title">Canal ${i}</h3>
-//           <iframe
-//             class="channelcard__url"
-//             width="380"
-//             height="214"
-//             src="${url}"
-//             frameborder="0"
-//             allowfullscreen
-//           ></iframe>
-//           <div class="channelcard__footer">
-//             <a href="${url}" title ="Pantalla Completa" class="channelcard__link">
-//             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-//             </a>
-//           </div>
-//         </article>
-//       `;
-//     }
-//   }
-// }
+function showChannel(url, title) {
+  main.innerHTML += `<article class="channelcard">
+    <iframe
+      class="channelcard__url"
+      width="100%"
+      height="100%"
+      src="${url}"
+      frameborder="0"
+      allow="encrypted-media"
+      allowfullscreen
+    >
+    </iframe>
+    <div class="channelcard__pannel">
+      <h3 class="channelcard__title">${title}</h3>
+      <a
+        href="${url}"
+        title="Pantalla Completa"
+        class="channelcard__link"
+      >
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+      </a>
+    </div>
+  </article>`;
+}
 
-// Inicio
+function loadChannels(server, channel, fnInitChannel, fnShowChannel) {
+  let finalChannel = 0;
+  let title = "";
+  if (innerWidth <= 425) {
+    finalChannel = channel + 1;
+  } else {
+    finalChannel = channel + 3;
+  }
+  // inicializamos main
+  main.innerHTML = `<div id="prev" class="prev" title="Canales Anteriores">
+    <i class="fa-solid fa-chevron-left prev__icon icon"></i>
+  </div>
+  <div id="next" class="next" title="Siguientes Canales">
+    <i class="fa-solid fa-chevron-right next__icon icon"></i>
+  </div>`;
+  // comprobamos si el servidor muestra los canales por numero o por url
+  if (server.type == "channel") {
+    // comprobamos que el canal inicial seleccionado + 3 no se exceda del total de canales del servidor
+    if (finalChannel > server.finalChannel) {
+      finalChannel = server.finalChannel;
+      channel = finalChannel - 3;
+      fnInitChannel(channel);
+    }
+    // mostramos los canales
+    for (let i = channel; i <= finalChannel; i++) {
+      let url = server.channelUrl[0].replace("channel", i);
+      title = `Canal ${i}`;
+      fnShowChannel(url, title);
+    }
+  } else {
+    if (finalChannel > server.channelUrl.length) {
+      finalChannel = server.channelUrl.length;
+      channel = finalChannel - 3;
+      fnInitChannel(channel);
+    }
+    for (let i = channel - 1; i <= finalChannel - 1; i++) {
+      let url = server.channelUrl[i].url;
+      title = `${server.channelUrl[i].channel}`;
+      fnShowChannel(url, title);
+    }
+  }
+}
 
 getServers(loadNewServer);
 
@@ -164,7 +238,12 @@ btnSettings.addEventListener("click", openSettings);
 btnSettingsUp.addEventListener("click", closeSettings);
 
 btnSearch.addEventListener("click", () => {
-  loadChannels(servers[selectedServer][0], initialChannel.value);
+  loadChannels(
+    servers[selectedServer][0],
+    Number(initialChannel.value),
+    setNewInitChannel,
+    showChannel
+  );
 });
 
 rangeChannel.addEventListener("mousemove", () =>
@@ -182,6 +261,8 @@ serverSelect.addEventListener("change", () => {
 
 // aparicion de botones generales
 main.addEventListener("mousemove", () => {
+  const btnPrev = document.getElementById("prev");
+  const btnNext = document.getElementById("next");
   if (!prev.classList.contains("prev--show")) {
     btnPrev.classList.add("prev--show");
     btnNext.classList.add("next--show");
