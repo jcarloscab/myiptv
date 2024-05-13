@@ -158,17 +158,23 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 5px 40px;
-  background-color: var(--cristal);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+}
+
+.button-up__icon {
+  padding: 15px;
+  border: 1px solid var(--secundary);
+  border-radius: 50%;
   transition: all 0.2s ease-in;
 }
 
 .settings-container__button:hover {
-  background-color: var(--cristal-hover);
   cursor: pointer;
+}
+
+.settings-container__button:hover .button-up__icon {
+  transform: scale(110%);
 }
 
 /* channel */
