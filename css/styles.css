@@ -47,31 +47,41 @@ body {
 }
 
 .settings-button {
-  background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 2px 2px 3px rgba(255,255,255,0.2);
-  padding: 10px 40px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  /* border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px; */
   transform: translateY(-100%);
   transition: all 0.2s ease-in;
 }
 
+.settings-button__icon {
+  background-color: var(--cristal);
+  box-shadow: 2px 2px 3px rgba(255,255,255,0.2);
+  padding: 15px;
+  border: 1px solid var(--secundary);
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
 .settings-button--show {
-  transform: translateY(0);
+  transform: translateY(20px);
 }
 
 .settings-button:hover {
-  background-color: var(--cristal-hover);
+  /* background-color: var(--cristal-hover); */
   cursor: pointer;
 }
 
+
+.settings-button:hover .settings-button__icon {
+  transform: scale(110%);
+}
 
 .settings-container {
   background-color: var(--cristal);
   position: absolute;
   width: 100%;
   transform: translateY(calc(-100% - 50px));
-  transition: all 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .settings-container-open {
@@ -251,7 +261,7 @@ body {
 
 .prev__icon, .next__icon {
   background-color: var(--cristal);
-  padding: 15px;
+  padding: 15px 18px;
   border: 1px solid var(--secundary);
   border-radius: 50%;
   transition: all 0.2s ease-in;
