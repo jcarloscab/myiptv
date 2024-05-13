@@ -24,7 +24,9 @@ html {
 }
 
 body {
-   overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .icon {
@@ -225,14 +227,14 @@ body {
 
 .main {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 
 .channels-panel {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -292,7 +294,7 @@ body {
 /* canales */
 .channelcard {
   width: 50vw;
-  height: 50vh;
+  height: 50%;
   overflow: hidden;
   background-color: #010101;
   border-top: 1px solid #444;
