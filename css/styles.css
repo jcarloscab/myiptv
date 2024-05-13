@@ -294,6 +294,7 @@ body {
   color: white;
   font-size: 3rem;
   font-weight: 600;
+  user-select: none;
 }
 
 .channelcard__pannel {
