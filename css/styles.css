@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  overflow: hidden;
+   overflow: hidden;
 }
 
 .icon {
@@ -223,6 +223,13 @@ body {
 /*                 M A I N                                       */
 /*---------------------------------------------------------------*/
 
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
 .channels-panel {
   width: 100vw;
   height: 100vh;
@@ -356,6 +363,11 @@ body {
   }
 
   /* header */
+
+  .settings__title {
+    font-size: 1.5rem;
+  }
+
   .header__channels {
     flex-direction: column;
     align-items: center;
