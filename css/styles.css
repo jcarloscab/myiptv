@@ -167,6 +167,7 @@ body {
   border: 1px solid var(--secundary);
   border-radius: 50%;
   transition: all 0.2s ease-in;
+  background-color: var(--cristal);
 }
 
 .settings-container__button:hover {
