@@ -105,9 +105,11 @@ const btnSettingsUp = document.getElementById("settings-container-button");
 const settings = document.getElementById("settings-container");
 const serverSelect = document.getElementById("servers");
 const btnSearch = document.getElementById("search");
-const main = document.getElementById("main");
 const initialChannel = document.getElementById("initial-channel");
 const rangeChannel = document.getElementById("channel-range");
+const channelsPanel = document.getElementById("channels-panel");
+const btnPrev = document.getElementById("prev");
+const btnNext = document.getElementById("next");
 const textFinalChannel = document.getElementById("text-final-channel");
 let selectedServer;
 
@@ -162,7 +164,7 @@ function setNewInitChannel(newChannel) {
 }
 
 function showChannel(url, title) {
-  main.innerHTML += `<article class="channelcard">
+  channelsPanel.innerHTML += `<article class="channelcard">
     <iframe
       class="channelcard__url"
       width="100%"
@@ -189,25 +191,35 @@ function showChannel(url, title) {
 function loadChannels(server, channel, fnInitChannel, fnShowChannel) {
   let finalChannel = 0;
   let title = "";
+  channelsPanel.innerHTML = "";
   if (innerWidth <= 425) {
     finalChannel = channel + 1;
   } else {
     finalChannel = channel + 3;
   }
-  // inicializamos main
-  main.innerHTML = `<div id="prev" class="prev" title="Canales Anteriores">
-    <i class="fa-solid fa-chevron-left prev__icon icon"></i>
-  </div>
-  <div id="next" class="next" title="Siguientes Canales">
-    <i class="fa-solid fa-chevron-right next__icon icon"></i>
-  </div>`;
+  // si estamos al principio de la lista ocultamos el boton prev
+  if (channel == 1) {
+    btnPrev.classList.add("next--hidden");
+  } else {
+    btnPrev.classList.remove("next--hidden");
+  }
   // comprobamos si el servidor muestra los canales por numero o por url
   if (server.type == "channel") {
-    // comprobamos que el canal inicial seleccionado + 3 no se exceda del total de canales del servidor
+    // comprobamos que el canal final no se exceda del total de canales del servidor
     if (finalChannel > server.finalChannel) {
       finalChannel = server.finalChannel;
-      channel = finalChannel - 3;
+      if (innerWidth <= 425) {
+        channel = finalChannel - 1;
+      } else {
+        channel = finalChannel - 3;
+      }
       fnInitChannel(channel);
+    }
+    // si estamos al final de la lista ocultamos el boton next
+    if (finalChannel == server.finalChannel) {
+      btnNext.classList.add("next--hidden");
+    } else {
+      btnNext.classList.remove("next--hidden");
     }
     // mostramos los canales
     for (let i = channel; i <= finalChannel; i++) {
@@ -218,9 +230,20 @@ function loadChannels(server, channel, fnInitChannel, fnShowChannel) {
   } else {
     if (finalChannel > server.channelUrl.length) {
       finalChannel = server.channelUrl.length;
-      channel = finalChannel - 3;
+      if (innerWidth <= 425) {
+        channel = finalChannel - 1;
+      } else {
+        channel = finalChannel - 3;
+      }
       fnInitChannel(channel);
     }
+    // si estamos al final de la lista ocultamos el boton next
+    if (finalChannel == server.channelUrl.length) {
+      btnNext.classList.add("next--hidden");
+    } else {
+      btnNext.classList.remove("next--hidden");
+    }
+    // mostramos los canales
     for (let i = channel - 1; i <= finalChannel - 1; i++) {
       let url = server.channelUrl[i].url;
       title = `${server.channelUrl[i].channel}`;
@@ -244,6 +267,7 @@ btnSearch.addEventListener("click", () => {
     setNewInitChannel,
     showChannel
   );
+  closeSettings();
 });
 
 rangeChannel.addEventListener("mousemove", () =>
@@ -260,9 +284,7 @@ serverSelect.addEventListener("change", () => {
 });
 
 // aparicion de botones generales
-main.addEventListener("mousemove", () => {
-  const btnPrev = document.getElementById("prev");
-  const btnNext = document.getElementById("next");
+channelsPanel.addEventListener("mousemove", () => {
   if (!prev.classList.contains("prev--show")) {
     btnPrev.classList.add("prev--show");
     btnNext.classList.add("next--show");
@@ -273,4 +295,41 @@ main.addEventListener("mousemove", () => {
       btnSettings.classList.remove("settings-button--show");
     }, 3000);
   }
+});
+
+btnPrev.addEventListener("click", () => {
+  let channel = 0;
+  if (innerWidth <= 425) {
+    channel = Number(initialChannel.value) - 2;
+  } else {
+    channel = Number(initialChannel.value) - 4;
+  }
+
+  if (channel < 1) {
+    channel = 1;
+  }
+
+  setNewInitChannel(channel);
+  loadChannels(
+    servers[selectedServer][0],
+    Number(initialChannel.value),
+    setNewInitChannel,
+    showChannel
+  );
+});
+
+btnNext.addEventListener("click", () => {
+  let channel = 0;
+  if (innerWidth <= 425) {
+    channel = Number(initialChannel.value) + 2;
+  } else {
+    channel = Number(initialChannel.value) + 4;
+  }
+  setNewInitChannel(channel);
+  loadChannels(
+    servers[selectedServer][0],
+    Number(initialChannel.value),
+    setNewInitChannel,
+    showChannel
+  );
 });

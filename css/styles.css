@@ -137,6 +137,7 @@ body {
 .button:hover {
   background-color: var(--secundary);
   color: var(--primary);
+  cursor: pointer;
 }
 
 .button:active {
@@ -205,7 +206,7 @@ body {
 /*                 M A I N                                       */
 /*---------------------------------------------------------------*/
 
-.main {
+.channels-panel {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -216,38 +217,43 @@ body {
 
 /* botones prev y next */
 .prev, .next {
-  width: 70px;
-  height: 100vh;
   position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
   cursor: pointer;
   z-index: 99;
+  opacity: 1;
 }
 
 .prev {
   left: 0;
-  transform: translateX(-100%);
+  transform: translate(-100%, -50%);
   transition: all 0.2s ease-in-out;
 }
 
 .next {
   right: 0;
-  transform: translateX(100%);
+  transform: translate(100%, -50%);
   transition: all 0.2s ease-in-out;
 }
 
-.prev--show, .next--show {
-  transform: translateX(0);
+.prev--show {
+  transform: translate(20px, -50%);
+}
+
+.next--show {
+  transform: translate(-20px, -50%);
+}
+
+.prev--hidden, .next--hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .prev__icon, .next__icon {
   background-color: var(--cristal);
   padding: 15px;
   border: 1px solid var(--secundary);
-  border-radius: 100%;
+  border-radius: 50%;
   transition: all 0.2s ease-in;
 }
 
