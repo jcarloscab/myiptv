@@ -1,105 +1,5 @@
 /************ Variables *******************/
 
-const servers = {
-  TvFutbol: [
-    {
-      type: "channel",
-      channelUrl: ["https://tvfutbol.info/player/3/channel"],
-      defaultChannel: 60,
-      finalChannel: 150,
-    },
-    "selected",
-  ],
-  DAZN: [
-    {
-      type: "url",
-      channelUrl: [
-        {
-          url: "https://pirlotvenvivo.me/tv/dazn1.php",
-          channel: "DAZN 1",
-        },
-        {
-          url: "https://pirlotvenvivo.me/tv/dazn2.php",
-          channel: "DAZN 2",
-        },
-        {
-          url: "https://pirlotvenvivo.me/tv/daznlaliga.php",
-          channel: "DAZN Liga",
-        },
-        {
-          url: "https://pirlotvenvivo.me/daznf1.php",
-          channel: "DAZN F1",
-        },
-      ],
-      defaultChannel: 1,
-    },
-  ],
-  ESPN: [
-    {
-      type: "url",
-      channelUrl: [
-        {
-          url: "https://pirlotvenvivo.me/iframe/espnhdor.php",
-          channel: "ESPN",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/espn2hdor.php",
-          channel: "ESPN 2",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/espn3hdor.php",
-          channel: "ESPN 3",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/espnextraor.php",
-          channel: "ESPN EXTRA",
-        },
-      ],
-      defaultChannel: 1,
-    },
-  ],
-  HBOMax: [
-    {
-      type: "url",
-      channelUrl: [
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax.php",
-          channel: "HBOMax",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax2.php",
-          channel: "HBOMax 2",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax3.php",
-          channel: "HBOMax 3",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax4.php",
-          channel: "HBOMax 4",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax5.php",
-          channel: "HBOMax 5",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax6.php",
-          channel: "HBOMax 6",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax7.php",
-          channel: "HBOMax 7",
-        },
-        {
-          url: "https://pirlotvenvivo.me/iframe/hbomax8.php",
-          channel: "HBOMax 8",
-        },
-      ],
-      defaultChannel: 1,
-    },
-  ],
-};
-
 const btnSettings = document.getElementById("settings-button");
 const btnSettingsUp = document.getElementById("settings-container-button");
 const settings = document.getElementById("settings-container");
@@ -125,7 +25,8 @@ function closeSettings() {
   btnSettings.style.opacity = 1;
 }
 
-function getServers(fnNewServer) {
+async function getServers(fnNewServer) {
+  const servers = await (await fetch("src/servers.txt")).json();
   serverSelect.innerHTML = "";
   for (let server in servers) {
     serverSelect.innerHTML += `
@@ -260,7 +161,8 @@ btnSettings.addEventListener("click", openSettings);
 
 btnSettingsUp.addEventListener("click", closeSettings);
 
-btnSearch.addEventListener("click", () => {
+btnSearch.addEventListener("click", async () => {
+  const servers = await (await fetch("src/servers.txt")).json();
   loadChannels(
     servers[selectedServer][0],
     Number(initialChannel.value),
@@ -278,8 +180,9 @@ initialChannel.addEventListener("change", () =>
   setNewInitChannel(initialChannel.value)
 );
 
-serverSelect.addEventListener("change", () => {
+serverSelect.addEventListener("change", async () => {
   selectedServer = serverSelect.value;
+  const servers = await (await fetch("src/servers.txt")).json();
   loadNewServer(servers[selectedServer][0], setNewInitChannel, loadChannels);
 });
 
@@ -297,7 +200,8 @@ channelsPanel.addEventListener("mousemove", () => {
   }
 });
 
-btnPrev.addEventListener("click", () => {
+btnPrev.addEventListener("click", async () => {
+  const servers = await (await fetch("src/servers.txt")).json();
   let channel = 0;
   if (innerWidth <= 425) {
     channel = Number(initialChannel.value) - 2;
@@ -318,7 +222,8 @@ btnPrev.addEventListener("click", () => {
   );
 });
 
-btnNext.addEventListener("click", () => {
+btnNext.addEventListener("click", async () => {
+  const servers = await (await fetch("src/servers.txt")).json();
   let channel = 0;
   if (innerWidth <= 425) {
     channel = Number(initialChannel.value) + 2;
