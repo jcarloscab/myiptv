@@ -221,6 +221,10 @@ body {
   justify-content: space-between;
 }
 
+.channel__text-arrow {
+  color: var(--secundary);
+  visibility: hidden;
+}
 
 /*---------------------------------------------------------------*/
 /*                 M A I N                                       */
@@ -353,6 +357,26 @@ body {
 /*---------------------------------------------------------------*/
 /*                 R E S P O N S I V E                           */
 /*---------------------------------------------------------------*/
+
+@media screen and (max-width: 1000px) {
+  .settings__title {
+    font-size: 1.5rem;
+  }
+  
+  .channel__range {
+    display: none;
+  }
+
+  .channel__text {
+    width: 40%;
+    margin-bottom: 5px;
+  }
+
+  .channel__text-arrow {
+    visibility: visible;
+  }
+
+}
 
 @media screen and (max-width: 425px) {
 
