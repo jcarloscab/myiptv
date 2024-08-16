@@ -1,12 +1,28 @@
 {
+  "TuTvLive": [
+    {
+      "type": "channel",
+      "channelUrl": ["https://ntv.tutvlive.info/strads.php?ch=https://tutvlive.info/mpd/tvfhd.php?sTL1?id=channel"],
+      "defaultChannel": 60,
+      "finalChannel": 200
+    },
+      "selected"
+    ],
+  "Capofut": [
+    {
+      "type": "channel",
+      "channelUrl": ["https://www.capofut.net/play/canalchannel.php"],
+      "defaultChannel": 1,
+      "finalChannel": 50
+    }
+    ],
   "TvFutbol": [
     {
       "type": "channel",
       "channelUrl": ["https://tvfutbol.info/player/3/channel"],
       "defaultChannel": 60,
       "finalChannel": 150
-    },
-      "selected"
+    }
     ],
   "DAZN": [
     {
