@@ -8,6 +8,54 @@
     },
       "selected"
     ],
+    "ESPN": [
+    {
+      "type": "url",
+      "channelUrl": [
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=espn",
+          "channel": "ESPN"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=espn2",
+          "channel": "ESPN 2"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=espn3",
+          "channel": "ESPN 3"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=espndeportes",
+          "channel": "ESPN DEPORTES"
+        }
+      ],
+      "defaultChannel": 1
+    }
+  ],
+  "DAZN": [
+    {
+      "type": "url",
+      "channelUrl": [
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=dazn1",
+          "channel": "DAZN 1"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=dazn2",
+          "channel": "DAZN 2"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=dazn_laliga",
+          "channel": "DAZN Liga"
+        },
+        {
+          "url": "https://la12hd.com/vivo/canal.php?stream=dazn_f1",
+          "channel": "DAZN F1"
+        }
+      ],
+      "defaultChannel": 1
+    }
+  ],
   "Capofut": [
     {
       "type": "channel",
@@ -15,101 +63,5 @@
       "defaultChannel": 1,
       "finalChannel": 50
     }
-    ],
-  "TvFutbol": [
-    {
-      "type": "channel",
-      "channelUrl": ["https://tvfutbol.info/player/3/channel"],
-      "defaultChannel": 60,
-      "finalChannel": 150
-    }
-    ],
-  "DAZN": [
-    {
-      "type": "url",
-      "channelUrl": [
-        {
-          "url": "https://pirlotvenvivo.me/tv/dazn1.php",
-          "channel": "DAZN 1"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/tv/dazn2.php",
-          "channel": "DAZN 2"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/tv/daznlaliga.php",
-          "channel": "DAZN Liga"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/daznf1.php",
-          "channel": "DAZN F1"
-        }
-      ],
-      "defaultChannel": 1
-    }
-  ],
-  "ESPN": [
-    {
-      "type": "url",
-      "channelUrl": [
-        {
-          "url": "https://pirlotvenvivo.me/iframe/espnhdor.php",
-          "channel": "ESPN"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/espn2hdor.php",
-          "channel": "ESPN 2"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/espn3hdor.php",
-          "channel": "ESPN 3"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/espnextraor.php",
-          "channel": "ESPN EXTRA"
-        }
-      ],
-      "defaultChannel": 1
-    }
-  ],
-  "HBOMax": [
-    {
-      "type": "url",
-      "channelUrl": [
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax.php",
-          "channel": "HBOMax"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax2.php",
-          "channel": "HBOMax 2"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax3.php",
-          "channel": "HBOMax 3"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax4.php",
-          "channel": "HBOMax 4"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax5.php",
-          "channel": "HBOMax 5"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax6.php",
-          "channel": "HBOMax 6"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax7.php",
-          "channel": "HBOMax 7"
-        },
-        {
-          "url": "https://pirlotvenvivo.me/iframe/hbomax8.php",
-          "channel": "HBOMax 8"
-        }
-      ],
-      "defaultChannel": 1
-    }
-  ]
+    ]
 }
