@@ -13,19 +13,19 @@
       "type": "url",
       "channelUrl": [
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=espn",
+          "url": "https://streamtp2.com/global1.php?stream=espn1",
           "channel": "ESPN"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=espn2",
+          "url": "https://streamtp2.com/global1.php?stream=espn2",
           "channel": "ESPN 2"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=espn3",
+          "url": "https://streamtp2.com/global1.php?stream=espn3",
           "channel": "ESPN 3"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=espndeportes",
+          "url": "https://streamtp2.com/global1.php?stream=espn_deportes",
           "channel": "ESPN DEPORTES"
         }
       ],
@@ -37,20 +37,20 @@
       "type": "url",
       "channelUrl": [
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=dazn1",
+          "url": "https://streamtp2.com/global1.php?stream=dazn1",
           "channel": "DAZN 1"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=dazn2",
+          "url": "https://streamtp2.com/global1.php?stream=dazn2",
           "channel": "DAZN 2"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=dazn_laliga",
+          "url": "https://streamtp2.com/global1.php?stream=dazn_laliga",
           "channel": "DAZN Liga"
         },
         {
-          "url": "https://la12hd.com/vivo/canal.php?stream=dazn_f1",
-          "channel": "DAZN F1"
+          "url": "https://streamtp2.com/global1.php?stream=movistarlaliga",
+          "channel": "M+ LaLiga"
         }
       ],
       "defaultChannel": 1
